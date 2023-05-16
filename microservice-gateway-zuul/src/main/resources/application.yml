@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gateway-zuul # 指定应用名称
+server:
+  port: 8050
+eureka:
+  client:
+serviceUrl:
+  defaultZone: http://localhost:8761/eureka/
+#      上线测试需要使用以下配置
+#      defaultZone: http://eureka-server:8761/eureka/
+zuul:
+  sensitive-headers:
+routes:
+  user-service:
+    path: /user-service/**
+    serviceId: user-service
+  admin-service:
+    path: /admin-service/**
+    serviceId: admin-service
