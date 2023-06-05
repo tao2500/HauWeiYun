@@ -16,5 +16,5 @@ import java.util.Map;
  */
 public interface IReservationinformationService extends IService<Reservationinformation> {
 
-    Map<String, Object> addInfo(HttpServletRequest request, Integer time_id, Integer center_id, Integer first_id);
+    Map<String, Object> addInfo(HttpServletRequest request, String time_re, Integer center_id, Integer first_id);
 }

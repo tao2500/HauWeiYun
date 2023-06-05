@@ -34,7 +34,7 @@ ignored:
 
 jwt:
   tokenHeader: Authorization #JWT存储的请求头
-  sign: admin-su #JWT加解密使用的密钥
+  sign: user-su #JWT加解密使用的密钥
   expireTime: 30 #jwtToken的默认有效时间 单位分钟
   tokenHead: 'Bearer '  #JWT负载中拿到开头
 
