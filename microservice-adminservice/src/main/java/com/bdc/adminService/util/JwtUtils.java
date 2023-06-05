@@ -91,7 +91,6 @@ public class JwtUtils {
     /**
      * 设置用户的登录时间和令牌有效时间
      * @param admin
-     * @return
      */
     public static Admin setTime(Admin admin){
         long currentTime = System.currentTimeMillis();

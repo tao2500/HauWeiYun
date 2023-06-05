@@ -18,7 +18,7 @@ service-url:
   defaultZone: http://localhost:8761/eureka/
 #      上线测试需要使用以下配置
 #      defaultZone: http://eureka-server:8761/eureka/
-ORDERSERVICEURL: http://order-service/
+ORDERSERVICEURL: http://reservation-service/
 
 ## redis配置
 redis:
@@ -27,7 +27,7 @@ redis:
 
 logging:
   level:
-    com.bdc.userService: debug
+    com.bdc.reservationService: debug
 
 ignored:
   urls: #安全路径白名单
@@ -42,6 +42,6 @@ ignored:
 
 jwt:
   tokenHeader: Authorization #JWT存储的请求头
-  sign: reservation-su #JWT加解密使用的密钥
+  sign: user-su #JWT加解密使用的密钥
   expireTime: 30 #jwtToken的默认有效时间 单位分钟
   tokenHead: 'Bearer '  #JWT负载中拿到开头

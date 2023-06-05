@@ -1,4 +1,4 @@
-package com.bdc.adminService.config;
+package com.bdc.reservationService.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
