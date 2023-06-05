@@ -134,18 +134,8 @@ public class  ReservationinformationServiceImpl extends ServiceImpl<Reservationi
             queryWrapper.lambda().eq(Reservationinformation::getaState, 1);
             List<Reservationinformation> list = this.baseMapper.selectList(queryWrapper);
             if(list != null){
-//                LambdaUpdateWrapper<Reservationinformation> updateWrapper = new LambdaUpdateWrapper<>();
-//                updateWrapper.eq(Reservationinformation::getUserId, user.getId());
-//                updateWrapper.eq(Reservationinformation::getTime, date);
-//                updateWrapper.set(Reservationinformation::getaState, 0);
-//                int i = this.baseMapper.update(null, updateWrapper);
-//                Reservationinformation reservationinformation = list.get(0);
-//                reservationinformation.setaState(0);
-//                int i = this.baseMapper.update(reservationinformation, null);
-//                if(i == 1){
                     data.put("list", list);
                     return data;
-//                }
             }
         }
         return null;
