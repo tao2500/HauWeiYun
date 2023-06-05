@@ -18,9 +18,3 @@ routes:
   admin-service:
     path: /admin-service/**
     serviceId: admin-service
-  reservation-service:
-    path: /reservation-service/**
-    serviceId: reservation-service
-ribbon:
-  ConnectTimeout: 5000
-  ReadTimeout: 5000

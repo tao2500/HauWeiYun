@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bdc.reservationService.mapper.ReservationinformationMapper">
-    <select id="selectTimeId" resultType="com.bdc.adminService.entity.Timeinterval" parameterType="String">
-        SELECT * FROM x_timeinterval WHERE time = #{time_re}
-    </select>
 
 </mapper>

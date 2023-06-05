@@ -20,7 +20,7 @@ public class Test {
                 .globalConfig(builder -> {
                     builder.author(author) // 设置作者
 //                            .enableSwagger() // 开启 swagger 模式
-                            .fileOverride() // 覆盖已生成文件
+//                            .fileOverride() // 覆盖已生成文件
                             .outputDir("C:\\Users\\1\\Desktop\\软件设计与开发\\microservice_bdcSystem\\microservice-reservationservice\\src\\main\\java"); // 指定输出目录
                 })
                 .packageConfig(builder -> {

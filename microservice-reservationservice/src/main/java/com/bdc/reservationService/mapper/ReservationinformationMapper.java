@@ -1,8 +1,7 @@
 package com.bdc.reservationService.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bdc.adminService.entity.Timeinterval;
 import com.bdc.reservationService.entity.Reservationinformation;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -15,6 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ReservationinformationMapper extends BaseMapper<Reservationinformation> {
-    public Timeinterval selectTimeId(String time_re);
 
 }

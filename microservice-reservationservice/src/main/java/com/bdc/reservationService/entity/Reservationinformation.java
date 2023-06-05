@@ -3,8 +3,6 @@ package com.bdc.reservationService.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.io.Serializable;
 
 /**
@@ -16,7 +14,6 @@ import java.io.Serializable;
  * @since 2023-05-16
  */
 @TableName("x_reservationinformation")
-@Data
 public class Reservationinformation implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,14 +32,9 @@ public class Reservationinformation implements Serializable {
     private String time;
 
     /**
-     * 办理预约的时间
+     * 预约时段id
      */
-    private String timeNow;
-
-    /**
-     * 预约时段
-     */
-    private String timeRe;
+    private Integer timeId;
 
     /**
      * 预约的行政区id
@@ -90,12 +82,12 @@ public class Reservationinformation implements Serializable {
     public void setTime(String time) {
         this.time = time;
     }
-    public String getTimeRe() {
-        return timeRe;
+    public Integer getTimeId() {
+        return timeId;
     }
 
-    public void setTimeRe(String timeId) {
-        this.timeRe = timeRe;
+    public void setTimeId(Integer timeId) {
+        this.timeId = timeId;
     }
     public Integer getCenterId() {
         return centerId;
@@ -139,8 +131,7 @@ public class Reservationinformation implements Serializable {
             "id=" + id +
             ", userId=" + userId +
             ", time=" + time +
-            ", timeNow=" + timeNow +
-            ", timeRe=" + timeRe +
+            ", timeId=" + timeId +
             ", centerId=" + centerId +
             ", firstId=" + firstId +
             ", aState=" + aState +

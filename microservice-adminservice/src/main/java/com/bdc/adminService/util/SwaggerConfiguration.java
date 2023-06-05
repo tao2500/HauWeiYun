@@ -31,7 +31,7 @@ public class SwaggerConfiguration {
                 .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
                 .select()
 //                .paths(regex(DEFAULT_INCLUDE_PATTERN))//匹配路径生成对应接口文档
-                .apis(RequestHandlerSelectors.basePackage("com.bdc.adminService.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.bdc.userService.controller"))
                 .build();
         return docket;
     }

@@ -1,6 +1,6 @@
 package com.bdc.reservationService.util;
 
-import com.bdc.userService.entity.User;
+import com.bdc.reservationService.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -72,10 +72,9 @@ public class JwtUtils {
         System.out.println("id:::"+id);
         //从redis中获取用户信息
         Object user = RedisUtils.getValue("user:" + id);
+        User user1 = (User) user;
 
-//        System.out.println("user: " + user);
-
-        return (User) user;
+        return user1 ;
     }
 
 

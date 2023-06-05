@@ -30,10 +30,10 @@ public class ReservationinformationController {
     // 添加预约信息
     @PostMapping("/addInfo")
     public Result addInfo(HttpServletRequest request,
-                          @RequestParam String time_re,
+                          @RequestParam Integer time_id,
                           @RequestParam Integer center_id,
                           @RequestParam Integer first_id){
-        Map<String, Object> data = reservationinformationService.addInfo(request, time_re, center_id, first_id);
+        Map<String, Object> data = reservationinformationService.addInfo(request, time_id, center_id, first_id);
         if(data != null){
             return Result.success(data);
         }
