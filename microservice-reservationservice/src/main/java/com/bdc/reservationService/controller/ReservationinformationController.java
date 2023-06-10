@@ -32,8 +32,9 @@ public class ReservationinformationController {
     public Result addInfo(HttpServletRequest request,
                           @RequestParam String time_re,
                           @RequestParam Integer center_id,
-                          @RequestParam Integer first_id){
-        Map<String, Object> data = reservationinformationService.addInfo(request, time_re, center_id, first_id);
+                          @RequestParam Integer first_id,
+                          @RequestParam String window){
+        Map<String, Object> data = reservationinformationService.addInfo(request, time_re, center_id, first_id, window);
         if(data != null){
             return Result.success(data);
         }

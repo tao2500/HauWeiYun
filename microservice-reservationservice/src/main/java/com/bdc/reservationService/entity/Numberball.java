@@ -35,9 +35,9 @@ public class Numberball implements Serializable {
     private Integer firstId;
 
     /**
-     * 所属时段id
+     * 所属时段
      */
-    private Integer timeId;
+    private String time;
 
     /**
      * 号球数量
@@ -65,12 +65,12 @@ public class Numberball implements Serializable {
     public void setFirstId(Integer firstId) {
         this.firstId = firstId;
     }
-    public Integer getTimeId() {
-        return timeId;
+    public String getTime() {
+        return time;
     }
 
-    public void setTimeId(Integer timeId) {
-        this.timeId = timeId;
+    public void setTimeId(String time) {
+        this.time = time;
     }
     public Integer getNumber() {
         return number;
@@ -86,7 +86,7 @@ public class Numberball implements Serializable {
             "id=" + id +
             ", centerId=" + centerId +
             ", firstId=" + firstId +
-            ", timeId=" + timeId +
+            ", time=" + time +
             ", number=" + number +
         "}";
     }

@@ -69,6 +69,12 @@ public class Reservationinformation implements Serializable {
      */
     private Integer num;
 
+    /**
+     * 服务窗口
+     * @return
+     */
+    private String window;
+
     public Integer getId() {
         return id;
     }
@@ -94,7 +100,7 @@ public class Reservationinformation implements Serializable {
         return timeRe;
     }
 
-    public void setTimeRe(String timeId) {
+    public void setTimeRe(String timeRe) {
         this.timeRe = timeRe;
     }
     public Integer getCenterId() {
@@ -143,6 +149,7 @@ public class Reservationinformation implements Serializable {
             ", timeRe=" + timeRe +
             ", centerId=" + centerId +
             ", firstId=" + firstId +
+            ", window=" + window +
             ", aState=" + aState +
             ", pState=" + pState +
             ", num=" + num +
