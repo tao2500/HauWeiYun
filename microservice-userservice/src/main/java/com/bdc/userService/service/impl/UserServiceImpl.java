@@ -72,7 +72,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user = this.baseMapper.selectOne(queryWrapper);
         if (user != null){ //一个简单的登录逻辑
             User jwtUser = JwtUtils.setTime(user);
-            RedisUtils.saveValue("user:" + jwtUser.getId()+"",jwtUser,30, TimeUnit.MINUTES); //将用户信息存入redis数据库 第三和第四个参数为有效时间和时间单位
+            RedisUtils.saveValue("user:" + jwtUser.getId(),jwtUser,60, TimeUnit.MINUTES); //将用户信息存入redis数据库 第三和第四个参数为有效时间和时间单位
             Map<String,Object> userInfoMap = new HashMap<String, Object>();
             userInfoMap.put("id",jwtUser.getId());
             token = JwtUtils.createJwtToken(userInfoMap); //使用工具类生成token

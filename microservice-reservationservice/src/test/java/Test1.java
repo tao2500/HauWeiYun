@@ -16,7 +16,7 @@ public class Test1 {
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        SimpleDateFormat formatter3 = new SimpleDateFormat("HH");
+        SimpleDateFormat formatter3 = new SimpleDateFormat("yyyy-MM");
 //        System.out.println(date.format(formatter));
         System.out.println(formatter2.format(date1));
         System.out.println(formatter1.format(tomorrow));

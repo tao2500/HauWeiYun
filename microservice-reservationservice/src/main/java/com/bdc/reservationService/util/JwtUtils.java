@@ -86,7 +86,7 @@ public class JwtUtils {
     public static void refreshToken(User user){
         //重新设置User对象的过期时间，再刷新缓存
         user.setExpireTime(System.currentTimeMillis()+1000L * 60 * expireTime);
-        RedisUtils.saveValue("user:" + user.getId()+"",user,expireTime,TimeUnit.MINUTES);
+        RedisUtils.saveValue("user:" + user.getId(),user,expireTime,TimeUnit.MINUTES);
     }
 
     /**
