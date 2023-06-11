@@ -228,7 +228,7 @@ public class  ReservationinformationServiceImpl extends ServiceImpl<Reservationi
     public Map<String, Object> cancelReservation(String id){
         Map<String, Object> data = new HashMap<>();
         Reservationinformation reservationinformation = this.baseMapper.selectById(id);
-        if(reservationinformation != null){
+        if(reservationinformation != null && reservationinformation.getaState() != 0){
             // time为从数据库中查询到的预约日期，格式：2023-06-04
             String time = reservationinformation.getTime();
             // time_re为从数据库中查询到的预约时段，格式：09:00
