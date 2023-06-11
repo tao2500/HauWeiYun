@@ -3,6 +3,8 @@ package com.bdc.adminService.service;
 import com.bdc.adminService.entity.Secondarybusiness;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.Map;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISecondarybusinessService extends IService<Secondarybusiness> {
 
+    Map<String, Object> selectAll();
 }

@@ -3,6 +3,8 @@ package com.bdc.adminService.service;
 import com.bdc.adminService.entity.Numberball;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.Map;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface INumberballService extends IService<Numberball> {
 
+    Map<String, Object> selectAllFirst();
 }

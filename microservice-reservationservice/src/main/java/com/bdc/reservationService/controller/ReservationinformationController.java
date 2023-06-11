@@ -34,11 +34,17 @@ public class ReservationinformationController {
                           @RequestParam Integer center_id,
                           @RequestParam Integer first_id,
                           @RequestParam String window){
-        Map<String, Object> data = reservationinformationService.addInfo(request, time_re, center_id, first_id, window);
-        if(data != null){
-            return Result.success(data);
+        Map<String, Object> mages = reservationinformationService.isPunish(request);
+        if(mages == null) {
+            Map<String, Object> data = reservationinformationService.addInfo(request, time_re, center_id, first_id, window);
+            if (data != null) {
+                return Result.success(data);
+            }
+            return Result.failure(ResultCode.ERROR);
         }
-        return Result.failure(ResultCode.ERROR);
+        else {
+            return Result.success(mages);
+        }
     }
 
     // 根据预约信息中的id取消预约，距离预约时段小于2个小时无法取消
