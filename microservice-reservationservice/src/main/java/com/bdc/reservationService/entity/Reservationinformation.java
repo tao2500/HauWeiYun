@@ -1,6 +1,7 @@
 package com.bdc.reservationService.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -69,10 +70,19 @@ public class Reservationinformation implements Serializable {
      */
     private Integer num;
 
+    public String getWindow() {
+        return window;
+    }
+
+    public void setWindow(String window) {
+        this.window = window;
+    }
+
     /**
      * 服务窗口
-     * @return
+     * window是mysql的关键字，需加上@TableField注释
      */
+    @TableField(value = "`window`")
     private String window;
 
     public Integer getId() {
