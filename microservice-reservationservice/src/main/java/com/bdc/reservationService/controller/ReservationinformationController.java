@@ -34,6 +34,7 @@ public class ReservationinformationController {
                           @RequestParam Integer center_id,
                           @RequestParam Integer first_id,
                           @RequestParam String window){
+        // 查询用户是否可以进行预约
         Map<String, Object> mages = reservationinformationService.isPunish(request);
         if(mages == null) {
             Map<String, Object> data = reservationinformationService.addInfo(request, time_re, center_id, first_id, window);

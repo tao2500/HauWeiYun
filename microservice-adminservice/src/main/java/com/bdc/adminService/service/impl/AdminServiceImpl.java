@@ -7,13 +7,10 @@ import com.bdc.adminService.mapper.AdminMapper;
 import com.bdc.adminService.service.IAdminService;
 import com.bdc.adminService.util.JwtUtils;
 import com.bdc.adminService.util.RedisUtils;
-import com.bdc.userService.entity.User;
-import com.bdc.userService.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -32,8 +29,6 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Autowired
     private RestTemplate restTemplate;
 
-    @Resource
-    public UserMapper userMapper;
 
     @Override
     public Map<String, Object> login(String userName, String passWord) {
@@ -66,10 +61,10 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Override
     public Map<String, Object> selectByPhone(String phone) {
         Map<String, Object> data = new HashMap<>();
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(User::getPhone, phone);
-        User user = this.userMapper.selectOne(queryWrapper);
-        data.put("user", user);
+        QueryWrapper<Admin> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(Admin::getPhone, phone);
+        Admin admin = this.baseMapper.selectOne(queryWrapper);
+        data.put("user", admin);
         return data;
     }
 
