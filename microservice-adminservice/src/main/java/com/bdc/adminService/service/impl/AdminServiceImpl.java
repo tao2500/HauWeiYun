@@ -7,10 +7,13 @@ import com.bdc.adminService.mapper.AdminMapper;
 import com.bdc.adminService.service.IAdminService;
 import com.bdc.adminService.util.JwtUtils;
 import com.bdc.adminService.util.RedisUtils;
+import com.bdc.userService.entity.User;
+import com.bdc.userService.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -29,6 +32,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Autowired
     private RestTemplate restTemplate;
 
+    @Resource
+    public UserMapper userMapper;
+
     @Override
     public Map<String, Object> login(String userName, String passWord) {
         String token;
@@ -39,7 +45,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         admin = this.baseMapper.selectOne(queryWrapper);
         if (admin != null && admin.getPower()==1){ //一个简单的登录逻辑
             Admin jwtAdmin = JwtUtils.setTime(admin);
-            RedisUtils.saveValue("admin:" + jwtAdmin.getId()+"", jwtAdmin,30, TimeUnit.MINUTES); //将用户信息存入redis数据库 第三和第四个参数为有效时间和时间单位
+            RedisUtils.saveValue("admin:" + jwtAdmin.getId(), jwtAdmin,30, TimeUnit.MINUTES); //将用户信息存入redis数据库 第三和第四个参数为有效时间和时间单位
             Map<String,Object> userInfoMap = new HashMap<String, Object>();
             userInfoMap.put("id", jwtAdmin.getId());
             token = JwtUtils.createJwtToken(userInfoMap); //使用工具类生成token
@@ -51,8 +57,21 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         }
     }
 
+    // 查询所有用户
     @Override
     public String selectAllUser() {
         return this.restTemplate.getForObject("http://user-service/user/selectAllUser", String.class);
     }
+
+    @Override
+    public Map<String, Object> selectByPhone(String phone) {
+        Map<String, Object> data = new HashMap<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(User::getPhone, phone);
+        User user = this.userMapper.selectOne(queryWrapper);
+        data.put("user", user);
+        return data;
+    }
+
+
 }

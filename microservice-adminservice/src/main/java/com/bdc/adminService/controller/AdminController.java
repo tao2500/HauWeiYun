@@ -47,6 +47,16 @@ public class AdminController {
         return JSONObject.parseObject("{\"code\":2,\"msg\":\"操作失败\"");
     }
 
+    // 根据用户号查询用户
+    @GetMapping("/selectByPhone")
+    public Result selectByPhone(@RequestParam String phone){
+        Map<String, Object> data = adminService.selectByPhone(phone);
+        if(data != null){
+            return Result.success(data);
+        }
+        return Result.failure(ResultCode.ERROR);
+    }
+
 
 
 

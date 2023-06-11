@@ -18,4 +18,6 @@ public interface IAdminService extends IService<Admin> {
     Map<String, Object> login(String userName, String passWord);
 
     String selectAllUser();
+
+    Map<String, Object> selectByPhone(String phone);
 }
