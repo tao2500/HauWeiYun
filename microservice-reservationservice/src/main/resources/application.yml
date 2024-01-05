@@ -5,7 +5,7 @@ spring:
     #    与Docker整合时可使用以下配置（也可以使用具体的IP+端口）
     #    url: jdbc:mysql://mysql:3306/microservice_mallmanagement
     username: root
-    password: 123456
+    password: 2500594037
   application:
     name: reservation-service # 指定应用名称
   main:
